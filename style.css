@@ -1,8 +1,14 @@
 * {
     text-align: center;
-    font-family: sans-serif;
+    font-family: pc98;
     color: #DDD
 }
+
+@font-face {
+    font-family: pc98;
+    src: url(pc-9800.ttf);
+}
+
 
 body {
     background-color: #222
