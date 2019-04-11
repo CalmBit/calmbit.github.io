@@ -27,8 +27,8 @@ hr {
 
 footer a {
     font-size: 1.5em;
-    padding-left: 1em;
-    padding-right: 1em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
     text-decoration: none;
 }
 

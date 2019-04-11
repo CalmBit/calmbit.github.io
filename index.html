@@ -15,8 +15,8 @@
     <header>
         <img src="avatar_pixel.png" width="256" />
         <div class="entry">
-            <p class="title">こんにちは！</p>
-            <p class="subtitle">(Hello!)</p>
+            <p class="title" id="greeting">こんにちは！</p>
+            <p class="subtitle" id="greeting-explain">(Hello!)</p>
         </div>
     </header>
     <main>
@@ -29,7 +29,7 @@
         </div>
         <div class="main">
             <p>
-                I'm a 21 year old weeb from the planet earth.
+                I'm a 21 year old weeb on the planet Earth.
             </p>
             <hr>
             <div class="grid">
@@ -66,11 +66,27 @@
     </main>
     <footer>
         <hr>
-        <a href="https://calmbit.github.io/blog"><i class="fas fa-blog"></i> Blog</a>
-        <a href="https://github.com/CalmBit/"><i class="fab fa-github-square"></i> GitHub</a>
-        <a href="https://twitter.com/CalmByte"><i class="fab fa-twitter-square"></i> Twitter</a>
-        <a href="https://cybre.space/@CalmByte"><i class="fab fa-mastodon"></i> Mastodon</a>
+        <a href="https://calmbit.github.io/blog" title="Blog"><i class="fas fa-pen-square"></i> ブログ</a>
+        <a href="https://github.com/CalmBit/" title="GitHub"><i class="fab fa-github-square"></i> ギットハブ</a>
+        <a href="https://twitter.com/CalmByte" title="Twitter"><i class="fab fa-twitter-square"></i> ツイッター</a>
+        <a href="https://cybre.space/@CalmByte" title="Mastodon"><i class="fab fa-mastodon"></i> マストドン</a>
     </footer>
+    <script>
+        var d = new Date()
+        var element = document.getElementById("greeting")
+        var e2 = document.getElementById("greeting-explain")
+
+        if (d > 6 && d < 12) {
+            element.innerHTML = "おはようございます！"
+            e2.innerHTML = "(Good Morning!)"
+        } else if (d < 18) {
+            element.innerHTML = "こんにちは！"
+            e2.innerHTML = "(Good Afternoon!)"
+        } else {
+            element.innerHTML = "こんばんは"
+            e2.innerHTML = "(Good Evening!)"
+        }
+    </script>
 </body>
 
 </html>
