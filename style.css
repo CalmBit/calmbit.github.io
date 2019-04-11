@@ -25,11 +25,17 @@ hr {
     margin-bottom: 1em;
 }
 
-a {
+footer a {
     font-size: 1.5em;
-    text-decoration: none;
     padding-left: 1em;
     padding-right: 1em;
+    text-decoration: none;
+}
+
+a {
+    font-size: 1em;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .title {
@@ -45,4 +51,26 @@ a {
 
 .main {
     padding-top: 2em;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.header {
+    grid-column-start: span 2;
+}
+
+.item {
+    margin-left: 1em;
+    margin-right: 1em;
+    background-color: #00000022;
+    border-radius: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 0.5em;
 }
