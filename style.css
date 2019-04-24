@@ -74,3 +74,36 @@ a {
     margin-bottom: 1em;
     padding: 0.5em;
 }
+
+body:before {
+    content: "";
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 128px;
+    height: 100vh;
+    background-image: url(halftone.png);
+    background-repeat: repeat-y;
+    background-size: 128px auto;
+    background-color: var(--primary, #1f0041);
+    z-index: -1;
+}
+
+
+body:after {
+    content: "";
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 128px;
+    height: 100vh;
+    background-image: url(halftone.png);
+    background-repeat: repeat-y;
+    background-size: 128px auto;
+    background-color: var(--primary, #1f0041);
+    z-index: -1;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
