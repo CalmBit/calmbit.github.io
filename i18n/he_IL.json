@@ -1,0 +1,12 @@
+{
+    "greeting": {
+        "morning": "!בוקר טוב",
+        "afternoon": "!אחר הצהריים טובים",
+        "evening": "!ערב טוב"
+    },
+    "greeting_name": ".CalmBit שמי הוא",
+    "blog": "בלוג",
+    "github": "Github",
+    "twitter": "Twitter",
+    "mastodon": "Mastodon"
+ }

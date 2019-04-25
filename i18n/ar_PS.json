@@ -1,0 +1,12 @@
+{
+    "greeting": {
+        "morning": "!صباح الخير",
+        "afternoon": "!مساء الخير",
+        "evening": "!مساء الخير"
+    },
+    "greeting_name": ".CalmBit اسمي",
+    "blog": "مدونة",
+    "github": "Github",
+    "twitter": "Twitter",
+    "mastodon": "Mastodon"
+ }
