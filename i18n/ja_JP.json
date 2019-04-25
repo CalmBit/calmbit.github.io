@@ -1,0 +1,12 @@
+{
+    "greeting": {
+        "morning": "おはようございます！",
+        "afternoon": "こんにちは！",
+        "evening": "こんばんは！"
+    },
+    "greeting_name": "<ruby><rb>名前</rb><rt>なまえ</rt></ruby>はカームビットです。",
+    "blog": "ブログ",
+    "github": "ギットハブ",
+    "twitter": "ツイッター",
+    "mastodon": "マストドン"
+ }

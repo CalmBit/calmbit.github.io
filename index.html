@@ -32,9 +32,9 @@
                 I'm a 21 year old programmer on the planet Earth.
             </p>
             <hr>
-            <button onclick="setLang('ja-JP')">🇯🇵</button>
-            <button onclick="setLang('sv-SE')">🇸🇪</button>
-            <button onclick="setLang('fr-FR')">🇫🇷</button>
+            <button onclick="setLang('ja_JP')">🇯🇵</button>
+            <button onclick="setLang('sv_SE')">🇸🇪</button>
+            <button onclick="setLang('fr_FR')">🇫🇷</button>
             <hr style="margin-top: 1em">
             <div class="grid">
                 <div class="header">
@@ -77,61 +77,48 @@
     </footer>
     <script>
         var d = new Date().getHours()
+        
+        function loadLang(l, callback, err) {
+            // Code from https://codepen.io/KryptoniteDove/post/load-json-file-locally-using-pure-javascript
+            var xobj = new XMLHttpRequest();
+            xobj.overrideMimeType("application/json");
+            xobj.open('GET', "i18n/"+l+'.json', true); // Replace 'my_data' with the path to your file
+            xobj.onreadystatechange = function () {
+                if (xobj.readyState == 4) {
+                    // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+                    if(xobj.status == "200")
+                        callback(xobj.responseText);
+                    else
+                        err()
+                }
+            };
+            xobj.send(null);  
+        }
 
         function setLang(l) {
-            if(l === "ja-JP") {
-                if (d > 6 && d < 12) {
-                    document.getElementById("greeting").innerHTML = "おはようございます！"
+
+            loadLang(l, function(resp) {
+                var json = JSON.parse(resp)
+                if (d >= 6 && d < 12) {
+                    document.getElementById("greeting").innerHTML = json.greeting.morning
                     document.getElementById("greeting-explain").innerHTML = "(Good Morning!)"
                 } else if (d > 12 && d < 18) {
-                    document.getElementById("greeting").innerHTML = "こんにちは！"
+                    document.getElementById("greeting").innerHTML = json.greeting.afternoon
                     document.getElementById("greeting-explain").innerHTML = "(Good Afternoon!)"
                 } else {
-                    document.getElementById("greeting").innerHTML = "こんばんは！"
+                    document.getElementById("greeting").innerHTML = json.greeting.evening
                     document.getElementById("greeting-explain").innerHTML = "(Good Evening!)"
                 }
-                document.getElementById("greeting-name").innerHTML = "<ruby><rb>名前</rb><rt>なまえ</rt></ruby>はカームビットです。"
-                document.getElementById("blog").innerHTML = "ブログ"
-                document.getElementById("github").innerHTML = "ギットハブ"
-                document.getElementById("twitter").innerHTML = "ツイッター"
-                document.getElementById("mastodon").innerHTML ="マストドン"
-            } 
-            else if(l === "sv-SE") {
-                if (d > 6 && d < 12) {
-                    document.getElementById("greeting").innerHTML = "God morgon!"
-                    document.getElementById("greeting-explain").innerHTML = "(Good Morning!)"
-                } else if (d > 12 && d < 18) {
-                    document.getElementById("greeting").innerHTML = "God eftermiddag!"
-                    document.getElementById("greeting-explain").innerHTML = "(Good Afternoon!)"
-                } else {
-                    document.getElementById("greeting").innerHTML = "God kväll!！"
-                    document.getElementById("greeting-explain").innerHTML = "(Good Evening!)"
-                }
-                document.getElementById("greeting-name").innerHTML = "Jag heter CalmBit." 
-                document.getElementById("blog").innerHTML = "Blogg"
-                document.getElementById("github").innerHTML = "Github"
-                document.getElementById("twitter").innerHTML = "Twitter"
-                document.getElementById("mastodon").innerHTML ="Mastodon" 
-            }
-            else if(l === "fr-FR") {
-                if (d > 6 && d < 12) {
-                    document.getElementById("greeting").innerHTML = "Bon matin!"
-                    document.getElementById("greeting-explain").innerHTML = "(Good Morning!)"
-                } else if (d > 12 && d < 18) {
-                    document.getElementById("greeting").innerHTML = "Bonjour!"
-                    document.getElementById("greeting-explain").innerHTML = "(Good Afternoon!)"
-                } else {
-                    document.getElementById("greeting").innerHTML = "Bonsoir!"
-                    document.getElementById("greeting-explain").innerHTML = "(Good Evening!)"
-                }
-                document.getElementById("greeting-name").innerHTML = "Je m'apelle CalmBit." 
-                document.getElementById("blog").innerHTML = "Blog"
-                document.getElementById("github").innerHTML = "Github"
-                document.getElementById("twitter").innerHTML = "Twitter"
-                document.getElementById("mastodon").innerHTML ="Mastodon" 
-            }
+                document.getElementById("greeting-name").innerHTML = json.greeting_name
+                document.getElementById("blog").innerHTML = json.blog
+                document.getElementById("github").innerHTML = json.github
+                document.getElementById("twitter").innerHTML = json.twitter
+                document.getElementById("mastodon").innerHTML = json.mastodon
+            }, function() {
+                console.log("error occured")
+            })
         }
-        setLang("sv-SE")
+        setLang("sv_SE")
 
     </script>
 </body>

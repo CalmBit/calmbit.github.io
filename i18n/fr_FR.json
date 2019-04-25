@@ -1,0 +1,12 @@
+{
+    "greeting": {
+        "morning": "Bon matin!",
+        "afternoon": "Bonjour!",
+        "evening": "Bonsoir！"
+    },
+    "greeting_name": "Je m'apelle CalmBit.",
+    "blog": "Blog",
+    "github": "Github",
+    "twitter": "Twitter",
+    "mastodon": "Mastodon"
+ }
