@@ -21,7 +21,7 @@
     </header>
     <main>
         <div class="entry">
-            <p class="title"><ruby>
+            <p id="greeting-name" class="title"><ruby>
                     <rb>名前</rb>
                     <rt>なまえ</rt>
                 </ruby>はカームビットです。</p>
@@ -29,9 +29,13 @@
         </div>
         <div class="main">
             <p>
-                I'm a 21 year old weeb on the planet Earth.
+                I'm a 21 year old programmer on the planet Earth.
             </p>
             <hr>
+            <button onclick="setLang('ja-JP')">🇯🇵</button>
+            <button onclick="setLang('sv-SE')">🇸🇪</button>
+            <button onclick="setLang('fr-FR')">🇫🇷</button>
+            <hr style="margin-top: 1em">
             <div class="grid">
                 <div class="header">
                     <h2>Stuff I've Done</h2>
@@ -66,26 +70,69 @@
     </main>
     <footer>
         <hr>
-        <a href="https://calmbit.github.io/blog" title="Blog"><i class="fas fa-pen-square"></i> ブログ</a>
-        <a href="https://github.com/CalmBit/" title="GitHub"><i class="fab fa-github-square"></i> ギットハブ</a>
-        <a href="https://twitter.com/CalmByte" title="Twitter"><i class="fab fa-twitter-square"></i> ツイッター</a>
-        <a href="https://cybre.space/@CalmByte" title="Mastodon"><i class="fab fa-mastodon"></i> マストドン</a>
+        <a href="https://calmbit.github.io/blog" title="Blog"><i class="fas fa-pen-square"></i> <span id="blog">ブログ</span></a>
+        <a href="https://github.com/CalmBit/" title="GitHub"><i class="fab fa-github-square"></i> <span id="github">ギットハブ</span></a>
+        <a href="https://twitter.com/CalmByte" title="Twitter"><i class="fab fa-twitter-square"></i> <span id="twitter">ツイッター</span></a>
+        <a href="https://cybre.space/@CalmByte" title="Mastodon"><i class="fab fa-mastodon"></i> <span id="mastodon">マストドン</span></a>
     </footer>
     <script>
         var d = new Date().getHours()
-        var element = document.getElementById("greeting")
-        var e2 = document.getElementById("greeting-explain")
 
-        if (d > 6 && d < 12) {
-            element.innerHTML = "おはようございます！"
-            e2.innerHTML = "(Good Morning!)"
-        } else if (d > 12 && d < 18) {
-            element.innerHTML = "こんにちは！"
-            e2.innerHTML = "(Good Afternoon!)"
-        } else {
-            element.innerHTML = "こんばんは！"
-            e2.innerHTML = "(Good Evening!)"
+        function setLang(l) {
+            if(l === "ja-JP") {
+                if (d > 6 && d < 12) {
+                    document.getElementById("greeting").innerHTML = "おはようございます！"
+                    document.getElementById("greeting-explain").innerHTML = "(Good Morning!)"
+                } else if (d > 12 && d < 18) {
+                    document.getElementById("greeting").innerHTML = "こんにちは！"
+                    document.getElementById("greeting-explain").innerHTML = "(Good Afternoon!)"
+                } else {
+                    document.getElementById("greeting").innerHTML = "こんばんは！"
+                    document.getElementById("greeting-explain").innerHTML = "(Good Evening!)"
+                }
+                document.getElementById("greeting-name").innerHTML = "<ruby><rb>名前</rb><rt>なまえ</rt></ruby>はカームビットです。"
+                document.getElementById("blog").innerHTML = "ブログ"
+                document.getElementById("github").innerHTML = "ギットハブ"
+                document.getElementById("twitter").innerHTML = "ツイッター"
+                document.getElementById("mastodon").innerHTML ="マストドン"
+            } 
+            else if(l === "sv-SE") {
+                if (d > 6 && d < 12) {
+                    document.getElementById("greeting").innerHTML = "God morgon!"
+                    document.getElementById("greeting-explain").innerHTML = "(Good Morning!)"
+                } else if (d > 12 && d < 18) {
+                    document.getElementById("greeting").innerHTML = "God eftermiddag!"
+                    document.getElementById("greeting-explain").innerHTML = "(Good Afternoon!)"
+                } else {
+                    document.getElementById("greeting").innerHTML = "God kväll!！"
+                    document.getElementById("greeting-explain").innerHTML = "(Good Evening!)"
+                }
+                document.getElementById("greeting-name").innerHTML = "Jag heter CalmBit." 
+                document.getElementById("blog").innerHTML = "Blogg"
+                document.getElementById("github").innerHTML = "Github"
+                document.getElementById("twitter").innerHTML = "Twitter"
+                document.getElementById("mastodon").innerHTML ="Mastodon" 
+            }
+            else if(l === "fr-FR") {
+                if (d > 6 && d < 12) {
+                    document.getElementById("greeting").innerHTML = "Bon matin!"
+                    document.getElementById("greeting-explain").innerHTML = "(Good Morning!)"
+                } else if (d > 12 && d < 18) {
+                    document.getElementById("greeting").innerHTML = "Bonjour!"
+                    document.getElementById("greeting-explain").innerHTML = "(Good Afternoon!)"
+                } else {
+                    document.getElementById("greeting").innerHTML = "Bonsoir!"
+                    document.getElementById("greeting-explain").innerHTML = "(Good Evening!)"
+                }
+                document.getElementById("greeting-name").innerHTML = "Je m'apelle CalmBit." 
+                document.getElementById("blog").innerHTML = "Blog"
+                document.getElementById("github").innerHTML = "Github"
+                document.getElementById("twitter").innerHTML = "Twitter"
+                document.getElementById("mastodon").innerHTML ="Mastodon" 
+            }
         }
+        setLang("sv-SE")
+
     </script>
 </body>
 
