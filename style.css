@@ -91,7 +91,7 @@ body:before {
     background-image: url(halftone.png);
     background-repeat: repeat-y;
     background-size: 128px auto;
-    background-color: var(--primary, #1f0041);
+    background-color: var(--primary, #543877);
     z-index: -1;
 }
 
@@ -106,7 +106,7 @@ body:after {
     background-image: url(halftone.png);
     background-repeat: repeat-y;
     background-size: 128px auto;
-    background-color: var(--primary, #1f0041);
+    background-color: var(--primary, #543877);
     z-index: -1;
     -moz-transform: scaleX(-1);
     -o-transform: scaleX(-1);
